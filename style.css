@@ -35,6 +35,19 @@ body {
     position: relative;
 }
 
+/* GLOBAL LINK FIX - FORCE SINGLE UNIFORM CYAN COLOR & REMOVE DEFAULT BROWSER BLUE/PURPLE */
+a, 
+a:link, 
+a:visited, 
+a:active {
+    color: var(--neon-cyan) !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #ffffff !important;
+}
+
 /* Ambient Radial Background Lighting */
 body::before {
     content: "";
@@ -75,16 +88,17 @@ nav {
     padding: 0 1.5rem;
 }
 
-.brand a {
+.brand a,
+.brand a:visited {
     font-size: 1.5rem;
     font-weight: 900;
-    color: #fff;
-    text-decoration: none;
+    color: #fff !important;
+    text-decoration: none !important;
     letter-spacing: -0.5px;
 }
 
 .brand span {
-    color: var(--neon-cyan);
+    color: var(--neon-cyan) !important;
 }
 
 .brand p {
@@ -98,16 +112,16 @@ nav {
     list-style: none;
 }
 
-.nav-links a {
-    color: var(--neon-cyan);
-    text-decoration: none;
+.nav-links a,
+.nav-links a:visited {
+    color: var(--neon-cyan) !important;
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: #fff;
+    color: #fff !important;
 }
 
 .has-dropdown {
@@ -148,16 +162,16 @@ nav {
     list-style: none;
 }
 
-.submenu a {
+.submenu a,
+.submenu a:visited {
     display: block;
     padding: 0.75rem 1.2rem;
-    color: var(--neon-cyan);
+    color: var(--neon-cyan) !important;
     font-size: 0.95rem;
-    text-decoration: none;
 }
 
 .submenu a:hover {
-    color: #fff;
+    color: #fff !important;
     background: rgba(0, 229, 255, 0.08);
 }
 
@@ -174,7 +188,6 @@ nav {
     border-radius: 100px;
     font-weight: 700;
     font-size: 0.88rem;
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -200,7 +213,7 @@ nav {
 .btn-outline-dark {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border-subtle);
-    color: #fff;
+    color: #fff !important;
 }
 
 .btn-outline-dark:hover {
@@ -210,7 +223,8 @@ nav {
 
 /* WhatsApp - High-Tech Fluo Neon Green Glow */
 .btn-whatsapp,
-a[href*="wa.me"] {
+a[href*="wa.me"],
+a[href*="wa.me"]:visited {
     background: linear-gradient(135deg, #00e65c, var(--neon-green)) !important;
     color: #021a0a !important;
     box-shadow: 0 6px 24px var(--neon-green-glow) !important;
@@ -363,10 +377,10 @@ a[href*="wa.me"]:hover {
     color: var(--text-muted);
 }
 
-.btn-purple-sm {
-    background: var(--neon-cyan);
-    color: #041018;
-    text-decoration: none;
+.btn-purple-sm,
+.btn-purple-sm:visited {
+    background: var(--neon-cyan) !important;
+    color: #041018 !important;
     padding: 0.6rem 1.2rem;
     border-radius: var(--radius-sm);
     font-size: 0.8rem;
@@ -408,7 +422,6 @@ a[href*="wa.me"]:hover {
     display: flex;
     align-items: center;
     gap: 1rem;
-    text-decoration: none;
     position: relative;
     overflow: hidden;
     transition: all 0.25s ease;
@@ -497,10 +510,10 @@ a[href*="wa.me"]:hover {
     gap: 0.9rem;
 }
 
-.contact-link {
+.contact-link,
+.contact-link:visited {
     display: inline-block;
-    color: var(--neon-cyan);
-    text-decoration: none;
+    color: var(--neon-cyan) !important;
     background: rgba(0, 229, 255, 0.04);
     border: 1px solid var(--border-subtle);
     padding: 0.9rem 1.2rem;
@@ -511,7 +524,7 @@ a[href*="wa.me"]:hover {
 .contact-link:hover {
     transform: translateY(-2px);
     background: rgba(0, 229, 255, 0.12);
-    color: #fff;
+    color: #fff !important;
 }
 
 .booking-card {
@@ -560,7 +573,6 @@ a[href*="wa.me"]:hover {
     box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.12);
 }
 
-/* Dropdown option background fix */
 .booking-select option {
     background-color: #041018;
     color: #ffffff;
@@ -576,7 +588,7 @@ a[href*="wa.me"]:hover {
 /* --- SITE FOOTER --- */
 
 .site-footer {
-    background-color: var(--bg-dark); /* Matches website body exactly */
+    background-color: var(--bg-dark);
     border-top: 1px solid var(--border-subtle);
     padding: 4.5rem 0 0;
     position: relative;
@@ -605,16 +617,16 @@ a[href*="wa.me"]:hover {
     flex-direction: column;
 }
 
-.footer-logo {
+.footer-logo,
+.footer-logo:visited {
     font-size: 1.6rem;
     font-weight: 900;
-    color: #fff;
-    text-decoration: none;
+    color: #fff !important;
     letter-spacing: -0.5px;
 }
 
 .footer-logo span {
-    color: var(--neon-cyan);
+    color: var(--neon-cyan) !important;
 }
 
 .brand-tagline {
@@ -677,16 +689,16 @@ a[href*="wa.me"]:hover {
     gap: 0.7rem;
 }
 
-.footer-menu a {
-    color: var(--neon-cyan);
-    text-decoration: none;
+.footer-menu a,
+.footer-menu a:visited {
+    color: var(--neon-cyan) !important;
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.25s ease;
 }
 
 .footer-menu a:hover {
-    color: #ffffff;
+    color: #ffffff !important;
     transform: translateX(4px);
     display: inline-block;
 }
@@ -701,14 +713,14 @@ a[href*="wa.me"]:hover {
     color: #fff;
 }
 
-.contact-item a {
-    color: var(--neon-cyan);
-    text-decoration: none;
+.contact-item a,
+.contact-item a:visited {
+    color: var(--neon-cyan) !important;
     transition: color 0.2s ease;
 }
 
 .contact-item a:hover {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .footer-cta-wrapper {
@@ -746,15 +758,15 @@ a[href*="wa.me"]:hover {
     gap: 0.8rem;
 }
 
-.footer-legal-links a {
-    color: var(--neon-cyan);
-    text-decoration: none;
+.footer-legal-links a,
+.footer-legal-links a:visited {
+    color: var(--neon-cyan) !important;
     font-size: 0.82rem;
     transition: color 0.2s;
 }
 
 .footer-legal-links a:hover {
-    color: #fff;
+    color: #fff !important;
 }
 
 .footer-legal-links .divider {
