@@ -4,7 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Repairs | Y-ECHNOLOGY</title>
+    <title>Hardware Repair Services | PC, Laptop & Phone | Y-ECHNOLOGY</title>
+    <meta name="description" content="Y-ECHNOLOGY offers PC, laptop and phone repairs in Mauritius with fast diagnostics, genuine parts and trusted hardware support.">
+    <meta name="keywords" content="hardware repair Mauritius, PC repair, laptop repair, phone repair, device diagnostics, component replacement">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="hardware-repairs.html">
+    <meta property="og:title" content="Hardware Repair Services | Y-ECHNOLOGY">
+    <meta property="og:description" content="Reliable PC, laptop and phone repair services in Mauritius with genuine parts and expert support.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="yechnologyimage.png">
+    <meta property="og:site_name" content="Y-ECHNOLOGY">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hardware Repair Services | Y-ECHNOLOGY">
+    <meta name="twitter:description" content="Trusted PC, laptop and phone repairs in Mauritius with fast diagnostics and genuine replacement parts.">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,12 +29,21 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#services">Services</a></li>
+                <li class="has-dropdown">
+                    <a href="index.html#services">Services <span class="dropdown-arrow">▾</span></a>
+                    <ul class="submenu">
+                        <li><a href="web-development.html">Web Development</a></li>
+                        <li><a href="graphics-design.html">Graphics Design</a></li>
+                        <li><a href="hardware-repairs.html">Hardware Repairs</a></li>
+                        <li><a href="web-scraping-agents.html">Web Scraping Agents</a></li>
+                        <li><a href="parts-shop.html">Parts Shop</a></li>
+                    </ul>
+                </li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="mailto:yechnology.mu@gmail.com" class="btn btn-purple-glow">Hire Us</a>
+                <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer" class="btn btn-purple-glow">Contact Us</a>
                 <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer" class="btn btn-outline-dark">WhatsApp</a>
             </div>
         </nav>
@@ -34,7 +55,7 @@
                     <h1>Reliable Hardware Repairs.</h1>
                     <p class="hero-description">Fixing PCs, laptops, and mobile devices with fast diagnostics, genuine parts, and expert service—right here in Mauritius.</p>
                     <div class="hero-actions">
-                        <a href="mailto:yechnology.mu@gmail.com" class="btn btn-purple-glow">Book Service</a>
+                        <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer" class="btn btn-purple-glow">Book Service</a>
                         <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer" class="btn btn-outline-dark">WhatsApp</a>
                     </div>
                     <div class="hero-stats-list">
@@ -91,6 +112,47 @@
                 </div>
             </div>
         </section>
+        <section class="contact-section booking-service-section">
+            <div class="container contact-grid">
+                <div class="contact-card booking-card">
+                    <h2>Book Hardware Repair</h2>
+                    <p>Send your device issue directly by email or WhatsApp and receive a fast repair estimate.</p>
+                    <form id="booking-form">
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-name">Your Name</label>
+                            <input id="booking-name" name="name" class="booking-input" type="text" placeholder="Full name">
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-phone">Phone Number</label>
+                            <input id="booking-phone" name="phone" class="booking-input" type="tel" placeholder="+230 000 00000">
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-service">Service</label>
+                            <select id="booking-service" name="service" class="booking-select">
+                                <option value="">Choose a service</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Graphics Design">Graphics Design</option>
+                                <option value="Hardware Repairs" selected>Hardware Repairs</option>
+                                <option value="Web Scraping Agents">Web Scraping Agents</option>
+                                <option value="Parts Shop">Parts Shop</option>
+                            </select>
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-date">Preferred Date</label>
+                            <input id="booking-date" name="date" class="booking-input" type="date">
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-details">Additional details</label>
+                            <textarea id="booking-details" name="details" class="booking-textarea" rows="4" placeholder="Describe the issue or device details"></textarea>
+                        </div>
+                        <div class="booking-actions">
+                            <button type="button" id="booking-email" class="btn btn-outline-dark btn-email">Send by Email</button>
+                            <button type="button" id="booking-whatsapp" class="btn btn-whatsapp">Send via WhatsApp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="container footer-grid">
@@ -105,7 +167,7 @@
                 <a href="index.html#contact">Contact</a>
             </div>
             <div class="footer-contact">
-                <a href="mailto:yechnology.mu@gmail.com">yechnology.mu@gmail.com</a>
+                <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer">yechnology.mu@gmail.com</a>
                 <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer">WhatsApp: +230 000 00000</a>
             </div>
         </div>
