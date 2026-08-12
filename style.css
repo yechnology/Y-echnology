@@ -13,13 +13,10 @@
 }
 
 :root {
-    --bg-dark: #041018;
-    --bg-section: rgba(6, 12, 22, 0.62);
-    --card-bg: linear-gradient(180deg, rgba(10, 12, 20, 0.82), rgba(6, 8, 16, 0.62));
-    --neon-cyan: #00e5ff;
-    --neon-blue: #00d8ff;
-    --neon-accent: #00baff;
-    --neon-green: #00ff66; /* Vibrant Fluo Green */
+    --bg-dark: #041018; /* Unified Single Background Color */
+    --bg-card: rgba(12, 20, 30, 0.85); /* Darker Card Fill Matching Dark Theme */
+    --neon-cyan: #00e5ff; /* Primary Brand Cyan */
+    --neon-green: #00ff66; /* Vibrant WhatsApp Fluo Green */
     --neon-green-glow: rgba(0, 255, 102, 0.45);
     --text-main: #e8fbff;
     --text-muted: #9fb6c3;
@@ -27,8 +24,7 @@
     --radius-lg: 20px;
     --radius-md: 14px;
     --radius-sm: 8px;
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --bg-card: rgba(12, 14, 24, 0.72);
+    --border-subtle: rgba(0, 216, 255, 0.15);
 }
 
 body {
@@ -47,7 +43,7 @@ body::before {
     right: -10%;
     width: 65vw;
     height: 65vw;
-    background: radial-gradient(circle, rgba(0, 216, 255, 0.22) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(0, 216, 255, 0.15) 0%, transparent 65%);
     pointer-events: none;
     z-index: -1;
 }
@@ -62,7 +58,7 @@ body::before {
 
 header {
     padding: 1.2rem 0;
-    background: rgba(10, 8, 19, 0.85);
+    background: rgba(4, 16, 24, 0.92);
     backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
@@ -103,9 +99,10 @@ nav {
 }
 
 .nav-links a {
-    color: var(--text-muted);
+    color: var(--neon-cyan);
     text-decoration: none;
     font-size: 0.95rem;
+    font-weight: 500;
     transition: color 0.2s ease;
 }
 
@@ -128,11 +125,11 @@ nav {
     left: 0;
     margin-top: 0.8rem;
     min-width: 220px;
-    background: rgba(4, 10, 24, 0.97);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #041018;
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 0.75rem 0;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
     transform: translateY(8px);
@@ -154,14 +151,14 @@ nav {
 .submenu a {
     display: block;
     padding: 0.75rem 1.2rem;
-    color: var(--text-muted);
+    color: var(--neon-cyan);
     font-size: 0.95rem;
     text-decoration: none;
 }
 
 .submenu a:hover {
     color: #fff;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 229, 255, 0.08);
 }
 
 .nav-actions {
@@ -207,7 +204,7 @@ nav {
 }
 
 .btn-outline-dark:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(0, 229, 255, 0.08);
     transform: translateY(-2px);
 }
 
@@ -228,71 +225,11 @@ a[href*="wa.me"]:hover {
     box-shadow: 0 10px 35px rgba(0, 255, 102, 0.7) !important;
 }
 
-/* --- BOOKING FORM & DROPDOWNS --- */
-
-.booking-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 1.7rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border-radius: var(--radius-lg);
-}
-
-.booking-card h2,
-.booking-card h3 {
-    margin: 0;
-    color: var(--neon-cyan);
-}
-
-.booking-row {
-    display: grid;
-    gap: 0.55rem;
-}
-
-.booking-label {
-    font-size: 0.86rem;
-    color: rgba(255, 255, 255, 0.75);
-}
-
-.booking-input,
-.booking-select,
-.booking-textarea {
-    width: 100%;
-    background: rgba(4, 16, 24, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.13);
-    border-radius: 14px;
-    color: #fff;
-    padding: 0.9rem 1rem;
-    font-size: 0.95rem;
-    outline: none;
-}
-
-.booking-input:focus,
-.booking-select:focus,
-.booking-textarea:focus {
-    border-color: var(--neon-cyan);
-    box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.12);
-}
-
-/* Dropdown readability fix */
-.booking-select option {
-    background-color: #041018;
-    color: #ffffff;
-    padding: 0.5rem;
-}
-
-.booking-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
 /* --- HERO SECTION --- */
 
 .hero {
     padding: 4rem 0 6rem;
+    background-color: var(--bg-dark);
 }
 
 .hero-grid {
@@ -308,6 +245,7 @@ a[href*="wa.me"]:hover {
     line-height: 1.1;
     letter-spacing: -1px;
     margin-bottom: 1.5rem;
+    color: #ffffff;
 }
 
 .gradient-text {
@@ -343,7 +281,7 @@ a[href*="wa.me"]:hover {
 .stat-number {
     font-size: 1.8rem;
     font-weight: 800;
-    color: #fff;
+    color: var(--neon-cyan);
 }
 
 .stat-label {
@@ -376,7 +314,7 @@ a[href*="wa.me"]:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 229, 255, 0.08);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -390,7 +328,7 @@ a[href*="wa.me"]:hover {
     bottom: 1.5rem;
     left: 1.5rem;
     right: 1.5rem;
-    background: rgba(15, 12, 28, 0.85);
+    background: rgba(4, 16, 24, 0.9);
     backdrop-filter: blur(20px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
@@ -438,7 +376,10 @@ a[href*="wa.me"]:hover {
 
 /* --- SERVICES & OTHER SECTIONS --- */
 
-.top-sellers { padding: 4rem 0; }
+.top-sellers {
+    padding: 4rem 0;
+    background-color: var(--bg-dark);
+}
 
 .section-header {
     display: flex;
@@ -447,7 +388,11 @@ a[href*="wa.me"]:hover {
     margin-bottom: 2rem;
 }
 
-.section-header h2 { font-size: 1.8rem; font-weight: 800; }
+.section-header h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--neon-cyan);
+}
 
 .seller-cards-grid {
     display: grid;
@@ -457,7 +402,7 @@ a[href*="wa.me"]:hover {
 
 .seller-card {
     background: var(--bg-card);
-    border: 1px solid rgba(0, 216, 255, 0.12);
+    border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 1.2rem;
     display: flex;
@@ -482,10 +427,22 @@ a[href*="wa.me"]:hover {
     object-fit: cover;
 }
 
-.seller-info h4 { font-size: 1rem; font-weight: 700; color: var(--neon-cyan); }
-.seller-info p { font-size: 0.82rem; color: var(--text-muted); }
+.seller-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+}
 
-.about-section { padding: 3rem 0 6rem; }
+.seller-info p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.about-section {
+    padding: 3rem 0 6rem;
+    background-color: var(--bg-dark);
+}
+
 .about-card {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
@@ -496,12 +453,23 @@ a[href*="wa.me"]:hover {
     margin: 0 auto;
 }
 
-.about-card h2 { font-size: 2rem; margin-bottom: 1rem; }
-.about-card p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+.about-card h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--neon-cyan);
+}
+
+.about-card p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- CONTACT & BOOKING FORM SECTION --- */
 
 .contact-section {
     padding: 4rem 0;
-    background: rgba(4, 8, 18, 0.9);
+    background-color: var(--bg-dark);
     border-top: 1px solid var(--border-subtle);
 }
 
@@ -518,25 +486,98 @@ a[href*="wa.me"]:hover {
     padding: 2rem;
 }
 
-.contact-methods { display: grid; gap: 0.9rem; }
-.contact-link {
-    display: inline-block;
-    color: #fff;
-    text-decoration: none;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.9rem 1.2rem;
-    border-radius: 999px;
-    transition: transform 0.2s ease;
+.contact-card h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--neon-cyan);
 }
 
-.contact-link:hover { transform: translateY(-2px); background: rgba(0, 216, 255, 0.08); }
+.contact-methods {
+    display: grid;
+    gap: 0.9rem;
+}
 
-/* --- FOOTER (MATCHING WEBSITE THEME) --- */
+.contact-link {
+    display: inline-block;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    background: rgba(0, 229, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    padding: 0.9rem 1.2rem;
+    border-radius: 999px;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.contact-link:hover {
+    transform: translateY(-2px);
+    background: rgba(0, 229, 255, 0.12);
+    color: #fff;
+}
+
+.booking-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    padding: 1.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: var(--radius-lg);
+}
+
+.booking-card h2,
+.booking-card h3 {
+    margin: 0;
+    color: var(--neon-cyan);
+}
+
+.booking-row {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.booking-label {
+    font-size: 0.86rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.booking-input,
+.booking-select,
+.booking-textarea {
+    width: 100%;
+    background: #041018;
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    color: #fff;
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.booking-input:focus,
+.booking-select:focus,
+.booking-textarea:focus {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.12);
+}
+
+/* Dropdown option background fix */
+.booking-select option {
+    background-color: #041018;
+    color: #ffffff;
+    padding: 0.5rem;
+}
+
+.booking-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+/* --- SITE FOOTER --- */
 
 .site-footer {
-    background: var(--bg-dark); /* Matches the main body background exactly */
-    border-top: 1px solid rgba(0, 229, 255, 0.18);
+    background-color: var(--bg-dark); /* Matches website body exactly */
+    border-top: 1px solid var(--border-subtle);
     padding: 4.5rem 0 0;
     position: relative;
 }
@@ -622,13 +663,11 @@ a[href*="wa.me"]:hover {
     100% { opacity: 0.4; }
 }
 
-/* Headings in Footer */
 .footer-heading {
-    color: var(--neon-cyan); /* Unified Cyan Color for Column Headers */
+    color: var(--neon-cyan);
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 1.2rem;
-    position: relative;
 }
 
 .footer-menu {
@@ -638,9 +677,8 @@ a[href*="wa.me"]:hover {
     gap: 0.7rem;
 }
 
-/* Unified Service & Navigation Link Styling */
 .footer-menu a {
-    color: var(--neon-cyan); /* All service wording matches the cyan theme */
+    color: var(--neon-cyan);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -648,7 +686,7 @@ a[href*="wa.me"]:hover {
 }
 
 .footer-menu a:hover {
-    color: #ffffff; /* Turns clean bright white on hover */
+    color: #ffffff;
     transform: translateX(4px);
     display: inline-block;
 }
@@ -683,10 +721,9 @@ a[href*="wa.me"]:hover {
     padding: 0.6rem 1rem;
 }
 
-/* Bottom Bar - Same Background as Main Site */
 .footer-bottom {
     border-top: 1px solid var(--border-subtle);
-    background: transparent; /* No extra darker overlay color */
+    background-color: var(--bg-dark);
     padding: 1.5rem 0;
 }
 
@@ -725,21 +762,25 @@ a[href*="wa.me"]:hover {
     font-size: 0.6rem;
 }
 
-/* Mobile Responsive */
-@media (max-width: 900px) {
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
+/* --- CURSOR GLOW --- */
+
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(0, 216, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99;
 }
 
-@media (max-width: 600px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-    .footer-bottom-flex {
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
-    }
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+@media (max-width: 900px) {
+    nav { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .brand, .nav-links, .nav-actions { width: 100%; text-align: center; justify-content: center; }
+    .hero-grid, .seller-cards-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
 }
