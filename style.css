@@ -132,10 +132,65 @@ nav {
     color: #fff;
 }
 
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown-arrow {
+    margin-left: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.8rem;
+    min-width: 220px;
+    background: rgba(4, 10, 24, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 0.75rem 0;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 10;
+}
+
+.has-dropdown:hover .submenu,
+.has-dropdown:focus-within .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu li {
+    list-style: none;
+}
+
+.submenu a {
+    display: block;
+    padding: 0.75rem 1.2rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.submenu a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
 .nav-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+.nav-actions .btn {
+    min-width: 140px;
 }
 
 .search-bar {
@@ -193,6 +248,80 @@ nav {
 
 .btn-outline-dark:hover {
     background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    color: #0b3f1e;
+}
+
+.btn-whatsapp:hover {
+    background: #1ebe5a;
+}
+
+.btn-email {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.booking-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.booking-card h3 {
+    margin: 0;
+    color: #a8f7ff;
+}
+
+.booking-row {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.booking-label {
+    font-size: 0.86rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.booking-input,
+.booking-select,
+.booking-textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 14px;
+    color: #fff;
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.booking-input:focus,
+.booking-select:focus,
+.booking-textarea:focus {
+    border-color: rgba(40, 230, 255, 0.75);
+    box-shadow: 0 0 0 4px rgba(40, 230, 255, 0.12);
+}
+
+.booking-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+    .booking-actions {
+        justify-content: stretch;
+    }
+    .booking-actions .btn {
+        width: 100%;
+    }
 }
 
 
@@ -403,7 +532,7 @@ nav {
 
 .seller-card {
     background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid rgba(0, 216, 255, 0.12);
     border-radius: var(--radius-md);
     padding: 1.2rem;
     display: flex;
@@ -412,8 +541,10 @@ nav {
     transition: all 0.25s ease;
 }
 
-.seller-card:hover {
-    border-color: var(--purple-neon);
+.seller-card:hover,
+.seller-card.touch-active {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 18px 40px rgba(0, 216, 255, 0.16);
     transform: translateY(-4px);
 }
 
@@ -427,6 +558,7 @@ nav {
 .seller-info h4 {
     font-size: 1rem;
     font-weight: 700;
+    color: var(--neon-cyan);
 }
 
 .seller-info p {
@@ -598,7 +730,8 @@ footer {
 }
 
 .seller-card:hover::after,
-.seller-card:focus-visible::after {
+.seller-card:focus-visible::after,
+.seller-card.touch-active::after {
     transform: translateY(0);
 }
 
@@ -607,6 +740,19 @@ footer {
     border: 1px solid var(--border-subtle);
     color: #fff;
     transition: transform 0.2s ease;
+}
+
+a[href*="wa.me"] {
+    color: #b5ff9c;
+    border-color: rgba(181, 255, 156, 0.35);
+    background: rgba(181, 255, 156, 0.08);
+}
+
+a[href*="wa.me"]:hover,
+a[href*="wa.me"]:focus {
+    color: #91dd75;
+    background: rgba(145, 221, 117, 0.18);
+    transform: translateY(-2px);
 }
 
 .btn-outline-dark:hover {
@@ -633,6 +779,31 @@ footer {
 /* --- RESPONSIVE MEDIA QUERIES --- */
 
 @media (max-width: 900px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding-bottom: 0.5rem;
+    }
+    .brand,
+    .nav-links,
+    .nav-actions {
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    .nav-links a {
+        font-size: 0.95rem;
+    }
+    .nav-actions {
+        justify-content: center;
+        gap: 0.8rem;
+    }
     .hero-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -640,12 +811,60 @@ footer {
     .hero-floating-card {
         grid-template-columns: 1fr;
         text-align: center;
+        padding: 1rem;
     }
     .card-actions {
         justify-self: center;
     }
-    .nav-links,
-    .search-bar {
-        display: none;
+    .hero-actions,
+    .hero-stats-list {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .hero-actions .btn,
+    .btn-outline-dark {
+        width: 100%;
+    }
+    .seller-cards-grid,
+    .contact-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .seller-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .seller-card img {
+        width: 100%;
+        height: 180px;
+    }
+    .footer-grid {
+        gap: 1.5rem;
+    }
+    .contact-card {
+        padding: 1.6rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+    .hero-description,
+    .about-card,
+    .contact-card {
+        max-width: 100%;
+    }
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .hero-actions .btn,
+    .btn-outline-dark {
+        font-size: 0.95rem;
+    }
+    .seller-card {
+        gap: 0.8rem;
     }
 }
