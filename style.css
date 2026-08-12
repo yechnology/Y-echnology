@@ -19,17 +19,14 @@
     --neon-cyan: #00e5ff;
     --neon-blue: #00d8ff;
     --neon-accent: #00baff;
-    --neon-teal-light: #99f7ff;
+    --neon-green: #00ff66; /* Vibrant Fluo Green */
+    --neon-green-glow: rgba(0, 255, 102, 0.45);
     --text-main: #e8fbff;
     --text-muted: #9fb6c3;
     --border-glow: rgba(0, 216, 255, 0.18);
-    --glass-accent: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(0, 216, 255, 0.08);
     --radius-lg: 20px;
     --radius-md: 14px;
     --radius-sm: 8px;
-    --purple-primary: #00b8df;
-    --purple-neon: #00e5ff;
     --border-subtle: rgba(255, 255, 255, 0.08);
     --bg-card: rgba(12, 14, 24, 0.72);
 }
@@ -82,8 +79,7 @@ nav {
     padding: 0 1.5rem;
 }
 
-.brand a,
-.logo a {
+.brand a {
     font-size: 1.5rem;
     font-weight: 900;
     color: #fff;
@@ -91,9 +87,13 @@ nav {
     letter-spacing: -0.5px;
 }
 
-.brand span,
-.logo span {
+.brand span {
     color: var(--neon-cyan);
+}
+
+.brand p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
 }
 
 .nav-links {
@@ -167,19 +167,15 @@ nav {
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.9rem;
 }
 
-.nav-actions .btn {
-    min-width: 140px;
-}
-
-/* --- BUTTONS & EMAIL / WHATSAPP STYLING --- */
+/* --- BUTTONS --- */
 
 .btn {
     padding: 0.7rem 1.4rem;
     border-radius: 100px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.88rem;
     text-decoration: none;
     display: inline-flex;
@@ -190,19 +186,18 @@ nav {
     transition: all 0.25s ease;
 }
 
-/* All Email Buttons -> Cyan Glow */
+/* Contact Us - Fluo Cyan Glow */
 .btn-purple-glow,
 .btn-email {
-    background: linear-gradient(135deg, #00b8df, #00e5ff) !important;
+    background: linear-gradient(135deg, #00c6ff, var(--neon-cyan)) !important;
     color: #041018 !important;
-    font-weight: 700;
-    box-shadow: 0 6px 28px rgba(0, 229, 255, 0.35);
+    box-shadow: 0 6px 24px rgba(0, 229, 255, 0.35);
 }
 
 .btn-purple-glow:hover,
 .btn-email:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 40px rgba(0, 229, 255, 0.55);
+    box-shadow: 0 10px 35px rgba(0, 229, 255, 0.6);
 }
 
 .btn-outline-dark {
@@ -216,26 +211,27 @@ nav {
     transform: translateY(-2px);
 }
 
-/* All WhatsApp Buttons -> Bright Green */
+/* WhatsApp - High-Tech Fluo Neon Green Glow */
 .btn-whatsapp,
 a[href*="wa.me"] {
-    background: #25d366 !important;
-    color: #041018 !important;
-    font-weight: 700;
+    background: linear-gradient(135deg, #00e65c, var(--neon-green)) !important;
+    color: #021a0a !important;
+    box-shadow: 0 6px 24px var(--neon-green-glow) !important;
     border: none !important;
 }
 
 .btn-whatsapp:hover,
 a[href*="wa.me"]:hover {
-    background: #1ebe5a !important;
-    color: #041018 !important;
+    background: linear-gradient(135deg, #00ff66, #33ff85) !important;
+    color: #000000 !important;
     transform: translateY(-2px);
+    box-shadow: 0 10px 35px rgba(0, 255, 102, 0.7) !important;
 }
 
-/* --- BOOKING FORM & DROPDOWN FIXES --- */
+/* --- BOOKING FORM & DROPDOWNS --- */
 
 .booking-card {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 1.7rem;
     display: flex;
@@ -280,32 +276,17 @@ a[href*="wa.me"]:hover {
     box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.12);
 }
 
-/* Fix Dropdown options readability (prevents white-on-white text) */
+/* Dropdown readability fix */
 .booking-select option {
     background-color: #041018;
     color: #ffffff;
     padding: 0.5rem;
 }
 
-.booking-select option:checked {
-    background-color: var(--neon-cyan);
-    color: #041018;
-}
-
 .booking-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    justify-content: flex-start;
-}
-
-@media (max-width: 900px) {
-    .booking-actions {
-        justify-content: stretch;
-    }
-    .booking-actions .btn {
-        width: 100%;
-    }
 }
 
 /* --- HERO SECTION --- */
@@ -445,7 +426,7 @@ a[href*="wa.me"]:hover {
 }
 
 .btn-purple-sm {
-    background: var(--purple-primary);
+    background: var(--neon-cyan);
     color: #041018;
     text-decoration: none;
     padding: 0.6rem 1.2rem;
@@ -453,18 +434,11 @@ a[href*="wa.me"]:hover {
     font-size: 0.8rem;
     font-weight: 700;
     display: inline-block;
-    transition: background 0.2s;
 }
 
-.btn-purple-sm:hover {
-    background: var(--neon-cyan);
-}
+/* --- SERVICES & OTHER SECTIONS --- */
 
-/* --- SERVICES SECTION --- */
-
-.top-sellers {
-    padding: 4rem 0;
-}
+.top-sellers { padding: 4rem 0; }
 
 .section-header {
     display: flex;
@@ -473,26 +447,7 @@ a[href*="wa.me"]:hover {
     margin-bottom: 2rem;
 }
 
-.section-header h2 {
-    font-size: 1.8rem;
-    font-weight: 800;
-}
-
-.timeframe-select {
-    background: var(--bg-card);
-    padding: 0.4rem 1rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-subtle);
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
-
-.timeframe-select select {
-    background: transparent;
-    border: none;
-    color: #fff;
-    outline: none;
-}
+.section-header h2 { font-size: 1.8rem; font-weight: 800; }
 
 .seller-cards-grid {
     display: grid;
@@ -514,8 +469,7 @@ a[href*="wa.me"]:hover {
     transition: all 0.25s ease;
 }
 
-.seller-card:hover,
-.seller-card.touch-active {
+.seller-card:hover {
     border-color: var(--neon-cyan);
     box-shadow: 0 18px 40px rgba(0, 216, 255, 0.16);
     transform: translateY(-4px);
@@ -528,43 +482,10 @@ a[href*="wa.me"]:hover {
     object-fit: cover;
 }
 
-.seller-info h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--neon-cyan);
-}
+.seller-info h4 { font-size: 1rem; font-weight: 700; color: var(--neon-cyan); }
+.seller-info p { font-size: 0.82rem; color: var(--text-muted); }
 
-.seller-info p {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-}
-
-.seller-card::after {
-    content: attr(data-hover);
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 1rem 1.2rem;
-    background: rgba(0, 0, 0, 0.85);
-    color: #fff;
-    font-size: 0.95rem;
-    transform: translateY(100%);
-    transition: transform 0.2s ease;
-}
-
-.seller-card:hover::after,
-.seller-card:focus-visible::after,
-.seller-card.touch-active::after {
-    transform: translateY(0);
-}
-
-/* --- ABOUT SECTION & FOOTER --- */
-
-.about-section {
-    padding: 3rem 0 6rem;
-}
-
+.about-section { padding: 3rem 0 6rem; }
 .about-card {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
@@ -575,81 +496,8 @@ a[href*="wa.me"]:hover {
     margin: 0 auto;
 }
 
-.about-card h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.about-card p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    margin-bottom: 1.5rem;
-}
-
-.hero-action-stack {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1.5rem;
-}
-
-footer {
-    padding: 3rem 0;
-    border-top: 1px solid var(--border-subtle);
-    background: var(--bg-dark);
-}
-
-.footer-brand h3 {
-    color: #fff;
-    font-size: 1.3rem;
-}
-
-.footer-brand h3 span {
-    color: var(--neon-cyan);
-}
-
-.footer-brand p {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    margin-top: 0.2rem;
-}
-
-.footer-contact a {
-    color: var(--neon-cyan);
-    text-decoration: none;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.footer-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    color: #fff;
-}
-
-.footer-grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    align-items: center;
-}
-
-.footer-note {
-    margin-top: 1.8rem;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
+.about-card h2 { font-size: 2rem; margin-bottom: 1rem; }
+.about-card p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
 
 .contact-section {
     padding: 4rem 0;
@@ -670,21 +518,7 @@ footer {
     padding: 2rem;
 }
 
-.contact-card h2 {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-}
-
-.contact-card p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-}
-
-.contact-methods {
-    display: grid;
-    gap: 0.9rem;
-}
-
+.contact-methods { display: grid; gap: 0.9rem; }
 .contact-link {
     display: inline-block;
     color: #fff;
@@ -693,16 +527,34 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 0.9rem 1.2rem;
     border-radius: 999px;
-    transition: transform 0.2s ease, background 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
-.contact-link:hover {
-    transform: translateY(-2px);
-    background: rgba(0, 216, 255, 0.08);
+.contact-link:hover { transform: translateY(-2px); background: rgba(0, 216, 255, 0.08); }
+
+footer {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border-subtle);
+    background: var(--bg-dark);
 }
+
+.footer-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    align-items: center;
+}
+
+.footer-brand h3 { color: #fff; font-size: 1.3rem; }
+.footer-brand h3 span { color: var(--neon-cyan); }
+.footer-brand p { color: var(--text-muted); font-size: 0.85rem; }
+.footer-contact a { color: var(--neon-cyan); text-decoration: none; font-weight: 600; display: block; margin-bottom: 0.5rem; }
+.footer-links { display: flex; gap: 1rem; }
+.footer-links a { color: var(--text-muted); text-decoration: none; }
+.footer-links a:hover { color: #fff; }
+.footer-note { margin-top: 1.8rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
 
 /* --- CURSOR GLOW --- */
-
 .cursor-glow {
     position: fixed;
     top: 0;
@@ -715,93 +567,9 @@ footer {
     z-index: 99;
 }
 
-/* --- RESPONSIVE MEDIA QUERIES --- */
-
 @media (max-width: 900px) {
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        padding-bottom: 0.5rem;
-    }
-    .brand,
-    .nav-links,
-    .nav-actions {
-        width: 100%;
-        text-align: center;
-    }
-    .nav-links {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-    }
-    .nav-actions {
-        justify-content: center;
-        gap: 0.8rem;
-    }
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-    .hero-floating-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 1rem;
-    }
-    .card-actions {
-        justify-self: center;
-    }
-    .hero-actions,
-    .hero-stats-list,
-    .hero-action-stack {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .hero-actions .btn,
-    .btn-outline-dark {
-        width: 100%;
-    }
-    .seller-cards-grid,
-    .contact-grid,
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-    .seller-card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .seller-card img {
-        width: 100%;
-        height: 180px;
-    }
-    .footer-grid {
-        gap: 1.5rem;
-    }
-    .contact-card {
-        padding: 1.6rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero-content h1 {
-        font-size: 2.4rem;
-    }
-    .hero-description,
-    .about-card,
-    .contact-card {
-        max-width: 100%;
-    }
-    .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    .hero-actions .btn,
-    .btn-outline-dark {
-        font-size: 0.95rem;
-    }
-    .seller-card {
-        gap: 0.8rem;
-    }
+    nav { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .brand, .nav-links, .nav-actions { width: 100%; text-align: center; justify-content: center; }
+    .hero-grid, .seller-cards-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
 }
