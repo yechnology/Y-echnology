@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Scraping Agents | Y-ECHNOLOGY</title>
+    <meta name="description" content="Build automated web scraping agents for data collection, price monitoring and reporting with Y-ECHNOLOGY in Mauritius.">
+    <meta name="keywords" content="web scraping Mauritius, data scraping services, market monitoring, automated data collection, scraping agents">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="web-scraping-agents.html">
+    <meta property="og:title" content="Web Scraping Agents | Y-ECHNOLOGY">
+    <meta property="og:description" content="Automated web scraping agents for data collection, price monitoring and reporting.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="yechnologyimage.png">
+    <meta property="og:site_name" content="Y-ECHNOLOGY">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Web Scraping Agents | Y-ECHNOLOGY">
+    <meta name="twitter:description" content="Automated web scraping agents for data collection, price monitoring and reporting.">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,12 +29,21 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#services">Services</a></li>
+                <li class="has-dropdown">
+                    <a href="index.html#services">Services <span class="dropdown-arrow">▾</span></a>
+                    <ul class="submenu">
+                        <li><a href="web-development.html">Web Development</a></li>
+                        <li><a href="graphics-design.html">Graphics Design</a></li>
+                        <li><a href="hardware-repairs.html">Hardware Repairs</a></li>
+                        <li><a href="web-scraping-agents.html">Web Scraping Agents</a></li>
+                        <li><a href="parts-shop.html">Parts Shop</a></li>
+                    </ul>
+                </li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="mailto:yechnology.mu@gmail.com" class="btn btn-purple-glow">Hire Us</a>
+                <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer" class="btn btn-purple-glow">Contact Us</a>
                 <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer" class="btn btn-outline-dark">WhatsApp</a>
             </div>
         </nav>
@@ -34,7 +55,7 @@
                     <h1>Web Scraping Agents for Smarter Data.</h1>
                     <p class="hero-description">Automate data collection, market tracking, and reporting with tailored web scraping agents built for your research and analytics needs.</p>
                     <div class="hero-actions">
-                        <a href="mailto:yechnology.mu@gmail.com" class="btn btn-purple-glow">Get a Demo</a>
+                        <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer" class="btn btn-purple-glow">Get a Demo</a>
                         <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer" class="btn btn-outline-dark">WhatsApp</a>
                     </div>
                     <div class="hero-stats-list">
@@ -91,6 +112,47 @@
                 </div>
             </div>
         </section>
+        <section class="contact-section booking-service-section">
+            <div class="container contact-grid">
+                <div class="contact-card booking-card">
+                    <h2>Book Web Scraping Agents</h2>
+                    <p>Send your data requirements directly by email or WhatsApp and we’ll reply with the right agent setup.</p>
+                    <form id="booking-form">
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-name">Your Name</label>
+                            <input id="booking-name" name="name" class="booking-input" type="text" placeholder="Full name">
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-phone">Phone Number</label>
+                            <input id="booking-phone" name="phone" class="booking-input" type="tel" placeholder="+230 000 00000">
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-service">Service</label>
+                            <select id="booking-service" name="service" class="booking-select">
+                                <option value="">Choose a service</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Graphics Design">Graphics Design</option>
+                                <option value="Hardware Repairs">Hardware Repairs</option>
+                                <option value="Web Scraping Agents" selected>Web Scraping Agents</option>
+                                <option value="Parts Shop">Parts Shop</option>
+                            </select>
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-date">Preferred Date</label>
+                            <input id="booking-date" name="date" class="booking-input" type="date">
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-details">Additional details</label>
+                            <textarea id="booking-details" name="details" class="booking-textarea" rows="4" placeholder="Describe the data you need and the output format"></textarea>
+                        </div>
+                        <div class="booking-actions">
+                            <button type="button" id="booking-email" class="btn btn-outline-dark btn-email">Send by Email</button>
+                            <button type="button" id="booking-whatsapp" class="btn btn-whatsapp">Send via WhatsApp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="container footer-grid">
@@ -105,7 +167,7 @@
                 <a href="index.html#contact">Contact</a>
             </div>
             <div class="footer-contact">
-                <a href="mailto:yechnology.mu@gmail.com">yechnology.mu@gmail.com</a>
+                <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer">yechnology.mu@gmail.com</a>
                 <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer">WhatsApp: +230 000 00000</a>
             </div>
         </div>
