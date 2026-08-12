@@ -532,11 +532,11 @@ a[href*="wa.me"]:hover {
 
 .contact-link:hover { transform: translateY(-2px); background: rgba(0, 216, 255, 0.08); }
 
-/* --- PROFESSIONAL FOOTER STYLES --- */
+/* --- FOOTER (MATCHING WEBSITE THEME) --- */
 
 .site-footer {
-    background: linear-gradient(180deg, #020b12 0%, #01060a 100%);
-    border-top: 1px solid rgba(0, 229, 255, 0.15);
+    background: var(--bg-dark); /* Matches the main body background exactly */
+    border-top: 1px solid rgba(0, 229, 255, 0.18);
     padding: 4.5rem 0 0;
     position: relative;
 }
@@ -622,8 +622,9 @@ a[href*="wa.me"]:hover {
     100% { opacity: 0.4; }
 }
 
+/* Headings in Footer */
 .footer-heading {
-    color: #fff;
+    color: var(--neon-cyan); /* Unified Cyan Color for Column Headers */
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 1.2rem;
@@ -637,15 +638,17 @@ a[href*="wa.me"]:hover {
     gap: 0.7rem;
 }
 
+/* Unified Service & Navigation Link Styling */
 .footer-menu a {
-    color: var(--text-muted);
+    color: var(--neon-cyan); /* All service wording matches the cyan theme */
     text-decoration: none;
     font-size: 0.9rem;
+    font-weight: 500;
     transition: all 0.25s ease;
 }
 
 .footer-menu a:hover {
-    color: var(--neon-cyan);
+    color: #ffffff; /* Turns clean bright white on hover */
     transform: translateX(4px);
     display: inline-block;
 }
@@ -661,13 +664,13 @@ a[href*="wa.me"]:hover {
 }
 
 .contact-item a {
-    color: var(--text-muted);
+    color: var(--neon-cyan);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .contact-item a:hover {
-    color: var(--neon-cyan);
+    color: #ffffff;
 }
 
 .footer-cta-wrapper {
@@ -680,10 +683,10 @@ a[href*="wa.me"]:hover {
     padding: 0.6rem 1rem;
 }
 
-/* Bottom Bar */
+/* Bottom Bar - Same Background as Main Site */
 .footer-bottom {
     border-top: 1px solid var(--border-subtle);
-    background: rgba(0, 0, 0, 0.4);
+    background: transparent; /* No extra darker overlay color */
     padding: 1.5rem 0;
 }
 
@@ -707,7 +710,7 @@ a[href*="wa.me"]:hover {
 }
 
 .footer-legal-links a {
-    color: var(--text-muted);
+    color: var(--neon-cyan);
     text-decoration: none;
     font-size: 0.82rem;
     transition: color 0.2s;
