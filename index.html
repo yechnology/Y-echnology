@@ -4,27 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Y-ECHNOLOGY | Web Development, Graphics Design & Hardware Repairs in Mauritius</title>
-    <meta name="description" content="Y-ECHNOLOGY delivers web development, graphics design, hardware repairs and parts sourcing in Mauritius. Build your brand, fix devices, and grow your business with a trusted local tech partner.">
-    <meta name="keywords" content="Mauritius web development, graphics design Mauritius, hardware repairs, PC parts, laptop parts, phone repair, web scraping agents">
+    
+    <!-- SEO Meta Tags -->
+    <title>Y-ECHNOLOGY | Web Development, Graphics Design & Hardware Repairs Mauritius</title>
+    <meta name="description" content="Y-ECHNOLOGY provides expert full-stack web development, futuristic graphic design, micro-soldering hardware repair, and parts sourcing across Mauritius. Build, repair, and innovate with us.">
+    <meta name="keywords" content="Mauritius web development, graphics design Mauritius, hardware repairs Mauritius, laptop parts Mauritius, PC repair, web scraping agents, IT agency Mauritius">
+    <meta name="author" content="Y-ECHNOLOGY">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="index.html">
-    <meta property="og:title" content="Y-ECHNOLOGY | Technology Services in Mauritius">
-    <meta property="og:description" content="Professional web development, graphics design, hardware repairs and parts services in Mauritius from Y-ECHNOLOGY.">
+
+    <!-- Security Headers & Policies -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://images.unsplash.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:title" content="Y-ECHNOLOGY | Technology & Digital Solutions in Mauritius">
+    <meta property="og:description" content="Professional web development, graphics design, micro-soldering repairs, and hardware parts sourcing in Mauritius.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="yechnologyimage.png">
     <meta property="og:site_name" content="Y-ECHNOLOGY">
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Y-ECHNOLOGY | Technology Services in Mauritius">
-    <meta name="twitter:description" content="Professional web development, graphics design, hardware repairs and parts sourcing in Mauritius.">
+    <meta name="twitter:title" content="Y-ECHNOLOGY | Tech & Design Partner Mauritius">
+    <meta name="twitter:description" content="Web engineering, graphic branding, component-level repairs, and data scraping agents in Mauritius.">
+    <meta name="twitter:image" content="yechnologyimage.png">
+
+    <!-- Structured Schema Data (JSON-LD) for Local Business SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Y-ECHNOLOGY",
+      "image": "yechnologyimage.png",
+      "email": "yechnology.mu@gmail.com",
+      "telephone": "+23000000000",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "MU"
+      },
+      "url": "index.html",
+      "description": "Full-spectrum technology services in Mauritius including Web Development, Graphic Design, Hardware Repair, and Web Scraping Agents.",
+      "priceRange": "$$"
+    }
+    </script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- HEADER & NAVIGATION -->
     <header>
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Main Navigation">
             <div class="brand">
                 <a href="index.html">Y-<span>ECHNOLOGY</span></a>
                 <p>Innovate. Repair. Connect.</p>
@@ -32,43 +66,40 @@
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
                 <li class="has-dropdown">
-                    <a href="index.html#services">Services <span class="dropdown-arrow">▾</span></a>
-                    <ul class="submenu">
-                        <li><a href="web-development.html">Web Development</a></li>
-                        <li><a href="graphics-design.html">Graphics Design</a></li>
-                        <li><a href="hardware-repairs.html">Hardware Repairs</a></li>
-                        <li><a href="web-scraping-agents.html">Web Scraping Agents</a></li>
-                        <li><a href="parts-shop.html">Parts Shop</a></li>
+                    <a href="index.html#services" aria-haspopup="true" aria-expanded="false">Services <span class="dropdown-arrow">▾</span></a>
+                    <ul class="submenu" role="menu">
+                        <li role="none"><a role="menuitem" href="web-development.html">Web Development</a></li>
+                        <li role="none"><a role="menuitem" href="graphics-design.html">Graphics Design</a></li>
+                        <li role="none"><a role="menuitem" href="hardware-repairs.html">Hardware Repairs</a></li>
+                        <li role="none"><a role="menuitem" href="web-scraping-agents.html">Web Scraping Agents</a></li>
+                        <li role="none"><a role="menuitem" href="parts-shop.html">Parts Shop</a></li>
                     </ul>
                 </li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer" class="btn btn-purple-glow">Contact Us</a>
-                <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer" class="btn btn-outline-dark">WhatsApp</a>
+                <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-purple-glow" aria-label="Send email to Y-ECHNOLOGY">Contact Us</a>
+                <a href="https://wa.me/23000000000" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark" aria-label="Open WhatsApp chat with Y-ECHNOLOGY">WhatsApp</a>
             </div>
         </nav>
     </header>
 
     <main id="main-content">
-        <!-- ASYMMETRICAL HERO SECTION -->
+        <!-- HERO SECTION -->
         <section class="hero" id="home">
             <div class="container hero-grid">
 
-                <!-- Left Column: Typography, CTA, Metrics -->
                 <div class="hero-content">
                     <h1>Innovating code, visual design & <span class="gradient-text">hardware repair</span></h1>
-                    <p class="hero-description">Y-ECHNOLOGY is your trusted technology partner in Mauritius, offering professional web development, futuristic graphics design, reliable hardware repairs, and quality PCs, laptops, and phone parts. From building your digital presence
-                        to repairing and upgrading your devices, we deliver affordable, reliable, and innovative tech solutions all in one place.
+                    <p class="hero-description">Y-ECHNOLOGY is your trusted technology partner in Mauritius, offering professional web development, futuristic graphics design, reliable hardware repairs, and quality PC, laptop, and phone parts. From building your digital presence to repairing and upgrading your devices, we deliver affordable and reliable tech solutions.
                     </p>
 
                     <div class="hero-actions">
                         <a href="#services" class="btn btn-purple-glow">Our Services</a>
-                        <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer" class="btn btn-outline-dark">Contact Direct</a>
+                        <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Contact Direct</a>
                     </div>
 
-                    <!-- Embedded Metrics Stack -->
                     <div class="hero-stats-list">
                         <div class="stat-item">
                             <span class="stat-number">100%</span>
@@ -85,18 +116,14 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Visual Feature Banner & Glass Overlay -->
                 <div class="hero-visual">
                     <div class="hero-image-wrapper">
-                        <!-- Concentric Pulse Rings -->
-                        <div class="ring ring-1"></div>
-                        <div class="ring ring-2"></div>
-                        <div class="ring ring-3"></div>
+                        <div class="ring ring-1" aria-hidden="true"></div>
+                        <div class="ring ring-2" aria-hidden="true"></div>
+                        <div class="ring ring-3" aria-hidden="true"></div>
 
-                        <!-- Main Showcase Graphic -->
-                        <img src="yechnologyimage.png" alt="Y-ECHNOLOGY Showcase" class="hero-banner-img">
+                        <img src="yechnologyimage.png" alt="Y-ECHNOLOGY Workspace Showcase showcasing web dev, design, and hardware repair tools" class="hero-banner-img" width="1200" height="800">
 
-                        <!-- Embedded Glass Floating Card -->
                         <div class="hero-floating-card">
                             <div class="card-metric-col">
                                 <span class="metric-subtitle">Location Base</span>
@@ -108,7 +135,7 @@
                                 <span class="metric-title email-title">yechnology.mu@gmail.com</span>
                             </div>
                             <div class="card-actions">
-                                <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer" class="btn-purple-sm">Get Quote</a>
+                                <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noopener noreferrer" class="btn-purple-sm">Get Quote</a>
                             </div>
                         </div>
                     </div>
@@ -124,7 +151,7 @@
                     <h2>Our Specializations <span class="icon">⚡</span></h2>
                     <div class="timeframe-select">
                         <span>Location:</span>
-                        <select disabled>
+                        <select disabled aria-label="Service Location">
                             <option>Mauritius</option>
                         </select>
                     </div>
@@ -132,37 +159,37 @@
 
                 <div class="seller-cards-grid">
                     <a class="seller-card" href="web-development.html" data-hover="Explore Web Development">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=150&auto=format&fit=crop&q=80" alt="Web Dev">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80" alt="Web Development Coding Monitor" width="600" height="600" loading="lazy">
                         <div class="seller-info">
-                            <h4>Web Development</h4>
+                            <h3>Web Development</h3>
                             <p>Full-Stack, Responsive & Custom Websites</p>
                         </div>
                     </a>
                     <a class="seller-card" href="graphics-design.html" data-hover="Explore Graphics Design">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=150&auto=format&fit=crop&q=80" alt="Graphics Design">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&auto=format&fit=crop&q=80" alt="Graphic Design Branding Interface" width="600" height="600" loading="lazy">
                         <div class="seller-info">
-                            <h4>Graphics Design</h4>
+                            <h3>Graphics Design</h3>
                             <p>Branding, Digital Art & UI/UX Design</p>
                         </div>
                     </a>
                     <a class="seller-card" href="hardware-repairs.html" data-hover="Explore Hardware Repairs">
-                        <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=150&auto=format&fit=crop&q=80" alt="Hardware Repair">
+                        <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=600&auto=format&fit=crop&q=80" alt="Hardware Repair and Motherboard Component Fixing" width="600" height="600" loading="lazy">
                         <div class="seller-info">
-                            <h4>Hardware Repairs</h4>
+                            <h3>Hardware Repairs</h3>
                             <p>PC, Laptop & System Component Fixes</p>
                         </div>
                     </a>
                     <a class="seller-card" href="web-scraping-agents.html" data-hover="Explore Web Scraping">
-                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=150&auto=format&fit=crop&q=80" alt="Web Scraping">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="Automated Web Scraping Bot Data Streams" width="600" height="600" loading="lazy">
                         <div class="seller-info">
-                            <h4>Web Scraping Agents</h4>
+                            <h3>Web Scraping Agents</h3>
                             <p>Automated Data Collection & Smart Bots</p>
                         </div>
                     </a>
                     <a class="seller-card" href="parts-shop.html" data-hover="Explore Parts Shop">
-                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=150&auto=format&fit=crop&q=80" alt="Shop Parts">
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop&q=80" alt="PC and Laptop Hardware Spare Parts Shop" width="600" height="600" loading="lazy">
                         <div class="seller-info">
-                            <h4>Parts Shop</h4>
+                            <h3>Parts Shop</h3>
                             <p>PC, Laptop & Phone Parts Available</p>
                         </div>
                     </a>
@@ -170,46 +197,47 @@
             </div>
         </section>
 
-        <!-- ABOUT / CTA SECTION -->
+        <!-- ABOUT SECTION -->
         <section id="about" class="about-section">
             <div class="container">
                 <div class="about-card">
                     <h2>Driven by Performance & Design</h2>
-                    <p>At Y-ECHNOLOGY, we combine software engineering with bold, futuristic graphics and hands-on hardware expertise. Serving clients across Mauritius.</p>
+                    <p>At Y-ECHNOLOGY, we combine software engineering with bold, futuristic graphics and hands-on hardware expertise. Serving clients across Mauritius with speed, precision, and excellence.</p>
                     <div class="hero-action-stack">
-                        <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer" class="btn btn-purple-glow">Launch Project</a>
-                        <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer" class="btn btn-outline-dark">Chat on WhatsApp</a>
+                        <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-purple-glow">Launch Project</a>
+                        <a href="https://wa.me/23000000000" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Chat on WhatsApp</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
+        <!-- CONTACT & BOOKING SECTION -->
         <section id="contact" class="contact-section">
             <div class="container contact-grid">
                 <div class="contact-card">
                     <h2>Let's build your next project.</h2>
-                    <p>Reach out directly for quotes, consultations, or immediate support. We combine web, design, hardware, and automation into one seamless service.</p>
+                    <p>Reach out directly for quotes, consultations, or immediate support. We combine web development, design, hardware, and automation into one seamless service.</p>
                     <div class="contact-methods">
-                        <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer" class="contact-link">Email: yechnology.mu@gmail.com</a>
-                        <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer" class="contact-link">WhatsApp: +230 000 00000</a>
+                        <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-link">Email: yechnology.mu@gmail.com</a>
+                        <a href="https://wa.me/23000000000" target="_blank" rel="noopener noreferrer" class="contact-link">WhatsApp: +230 000 00000</a>
                     </div>
                 </div>
+                
                 <div class="contact-card booking-card">
-                    <h3>Book a service</h3>
-                    <form id="booking-form">
+                    <h3>Book a Service</h3>
+                    <form id="booking-form" novalidate>
                         <div class="booking-row">
-                            <label class="booking-label" for="booking-name">Your Name</label>
-                            <input id="booking-name" name="name" class="booking-input" type="text" placeholder="Full name">
+                            <label class="booking-label" for="booking-name">Your Name *</label>
+                            <input id="booking-name" name="name" class="booking-input" type="text" placeholder="Full name" required>
                         </div>
                         <div class="booking-row">
-                            <label class="booking-label" for="booking-phone">Phone Number</label>
-                            <input id="booking-phone" name="phone" class="booking-input" type="tel" placeholder="+230 000 00000">
+                            <label class="booking-label" for="booking-phone">Phone Number *</label>
+                            <input id="booking-phone" name="phone" class="booking-input" type="tel" placeholder="+230 000 00000" required>
                         </div>
                         <div class="booking-row">
                             <label class="booking-label" for="booking-service">Service</label>
                             <select id="booking-service" name="service" class="booking-select">
-                                <option value="">Choose a service</option>
+                                <option value="General Inquiry">Choose a service</option>
                                 <option value="Web Development">Web Development</option>
                                 <option value="Graphics Design">Graphics Design</option>
                                 <option value="Hardware Repairs">Hardware Repairs</option>
@@ -222,7 +250,7 @@
                             <input id="booking-date" name="date" class="booking-input" type="date">
                         </div>
                         <div class="booking-row">
-                            <label class="booking-label" for="booking-details">Additional details</label>
+                            <label class="booking-label" for="booking-details">Additional Details</label>
                             <textarea id="booking-details" name="details" class="booking-textarea" rows="4" placeholder="Share your project, device issue, or preferred timing"></textarea>
                         </div>
                         <div class="booking-actions">
@@ -249,8 +277,8 @@
                 <a href="#contact">Contact</a>
             </div>
             <div class="footer-contact">
-                <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noreferrer">yechnology.mu@gmail.com</a>
-                <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer">WhatsApp: +230 000 00000</a>
+                <a href="mailto:yechnology.mu@gmail.com" target="_blank" rel="noopener noreferrer">yechnology.mu@gmail.com</a>
+                <a href="https://wa.me/23000000000" target="_blank" rel="noopener noreferrer">WhatsApp: +230 000 00000</a>
             </div>
         </div>
         <div class="footer-note">
