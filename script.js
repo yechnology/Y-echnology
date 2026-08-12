@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     initCursorGlow();
     initInteractiveAudio();
-    initCardGlowTracking();
     initBookingActions();
 });
 
@@ -32,14 +31,14 @@ function initCursorGlow() {
 function initInteractiveAudio() {
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-    function playBeep(freq = 800, type = 'sine', duration = 0.05, gainValue = 0.02) {
+    function playBeep(freq = 800, duration = 0.05, gainValue = 0.02) {
         if (audioCtx.state === 'suspended') {
             audioCtx.resume();
         }
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
 
-        osc.type = type;
+        osc.type = 'sine';
         osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
 
         gain.gain.setValueAtTime(gainValue, audioCtx.currentTime);
@@ -54,45 +53,11 @@ function initInteractiveAudio() {
 
     const hoverTargets = document.querySelectorAll('.btn, .seller-card, .nav-links a');
     hoverTargets.forEach(target => {
-        target.addEventListener('mouseenter', () => playBeep(900, 'sine', 0.04, 0.015));
-        target.addEventListener('touchstart', () => playBeep(900, 'sine', 0.04, 0.015), { passive: true });
-    });
-
-    const clickTargets = document.querySelectorAll('.btn, .btn-purple-sm');
-    clickTargets.forEach(target => {
-        target.addEventListener('click', () => playBeep(1400, 'triangle', 0.08, 0.03));
+        target.addEventListener('mouseenter', () => playBeep(900, 0.04, 0.015));
     });
 }
 
-/* 3. CARD MOUSE LIGHTING TRACKER */
-function initCardGlowTracking() {
-    const cards = document.querySelectorAll('.seller-card, .about-card');
-    cards.forEach(card => {
-        const updatePosition = (clientX, clientY) => {
-            const rect = card.getBoundingClientRect();
-            const x = clientX - rect.left;
-            const y = clientY - rect.top;
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        };
-
-        card.addEventListener('pointermove', (e) => {
-            updatePosition(e.clientX, e.clientY);
-        });
-
-        card.addEventListener('touchstart', (e) => {
-            if (!e.touches.length) return;
-            updatePosition(e.touches[0].clientX, e.touches[0].clientY);
-            card.classList.add('touch-active');
-        }, { passive: true });
-
-        card.addEventListener('touchend', () => {
-            card.classList.remove('touch-active');
-        });
-    });
-}
-
-/* 4. BOOKING & CONTACT ACTIONS */
+/* 3. BOOKING FORM ACTIONS */
 function initBookingActions() {
     const form = document.getElementById('booking-form');
     const emailButton = document.getElementById('booking-email');
@@ -123,11 +88,11 @@ function initBookingActions() {
             return lines.join('\n');
         }
 
-        // Opens Gmail web compose tab in the browser instead of launching an external app
+        // Opens Gmail directly in a browser tab
         emailButton.addEventListener('click', () => {
             const data = getFormData();
             const subject = encodeURIComponent(`Y-ECHNOLOGY booking request: ${data.service || 'Service inquiry'}`);
-            const body = encodeURIComponent(`Hello Y-ECHNOLOGY team,\n\nI would like to book a service with the following details:\n\n${buildMessage(data)}\n\nThanks!`);
+            const body = encodeURIComponent(`Hello Y-ECHNOLOGY team,\n\nI would like to book a service:\n\n${buildMessage(data)}\n\nThanks!`);
             window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}&su=${subject}&body=${body}`, '_blank');
         });
 
@@ -138,7 +103,7 @@ function initBookingActions() {
         });
     }
 
-    // Direct Web Gmail opening for mailto links across pages
+    // Direct Gmail Web opening for standard mailto links
     document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
