@@ -165,7 +165,8 @@ nav {
 }
 
 .has-dropdown:hover .submenu,
-.has-dropdown:focus-within .submenu {
+.has-dropdown:focus-within .submenu,
+.has-dropdown.open .submenu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -988,36 +989,50 @@ a[href*="wa.me"]:hover {
 
 @media (max-width: 900px) {
     header {
-        padding: 0.8rem 0;
+        padding: 0.7rem 0;
     }
     nav {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 0.7rem;
         text-align: center;
+        width: 100%;
     }
     .brand {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+    .brand a {
+        font-size: 1.2rem;
+    }
     .nav-links {
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 0.55rem;
+        width: min(100%, 360px);
+        padding: 0.25rem 0;
+    }
+    .has-dropdown {
         width: 100%;
-        padding: 0.4rem 0;
     }
     .has-dropdown .submenu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        background: rgba(4, 16, 24, 0.85);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) translateY(4px);
+        width: min(90vw, 260px);
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
+        background: rgba(4, 16, 24, 0.96);
         border: 1px solid var(--border-subtle);
         border-radius: 12px;
-        margin-top: 0.4rem;
-        width: 100%;
+        margin-top: 0.35rem;
         text-align: center;
+        display: none;
+    }
+    .has-dropdown.open .submenu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
     }
     .submenu a {
         padding: 0.6rem 1rem;
@@ -1025,6 +1040,7 @@ a[href*="wa.me"]:hover {
     .nav-actions {
         width: 100%;
         justify-content: center;
+        flex-wrap: wrap;
     }
     .hero {
         padding: 2rem 0;
@@ -1038,10 +1054,12 @@ a[href*="wa.me"]:hover {
     }
     .hero-content h1 {
         text-align: center;
+        font-size: clamp(2.1rem, 9vw, 3.3rem);
     }
     .hero-description {
         text-align: center;
         margin: 0 auto 1.5rem auto;
+        max-width: 100%;
     }
     .hero-actions,
     .booking-actions {
@@ -1056,6 +1074,20 @@ a[href*="wa.me"]:hover {
     }
     .hero-stats-list {
         justify-content: space-around;
+        gap: 1.25rem;
+    }
+    .hero-image-wrapper {
+        max-width: 100%;
+    }
+    .hero-banner-img {
+        height: auto;
+        max-height: 360px;
+    }
+    .hero-floating-card {
+        position: static;
+        margin-top: 1rem;
+        grid-template-columns: 1fr;
+        padding: 1rem;
     }
     .footer-grid {
         text-align: center;
