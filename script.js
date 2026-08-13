@@ -1,63 +1,148 @@
 document.addEventListener('DOMContentLoaded', () => {
-    initCursorGlow();
+    initMobileGlowAndParticles();
     initInteractiveAudio();
     initBookingActions();
 });
 
-/* 1. CURSOR GLOW EFFECT */
-function initCursorGlow() {
+/* 1. GPU-ACCELERATED PC & MOBILE PARTICLE & GLOW ENGINE */
+function initMobileGlowAndParticles() {
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    let lastEffectTime = 0;
+
+    // Ambient Glow Setup
     const glow = document.createElement('div');
     glow.className = 'cursor-glow';
     document.body.appendChild(glow);
 
-    let mouseX = 0, mouseY = 0;
-    let glowX = 0, glowY = 0;
+    if (!isMobile) {
+        let mouseX = 0,
+            mouseY = 0;
+        let glowX = 0,
+            glowY = 0;
 
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
 
-    function animateGlow() {
-        glowX += (mouseX - glowX) * 0.15;
-        glowY += (mouseY - glowY) * 0.15;
-        glow.style.transform = `translate3d(${glowX - 125}px, ${glowY - 125}px, 0)`;
-        requestAnimationFrame(animateGlow);
+        function animateGlow() {
+            glowX += (mouseX - glowX) * 0.15;
+            glowY += (mouseY - glowY) * 0.15;
+            glow.style.transform = `translate3d(${glowX - 125}px, ${glowY - 125}px, 0)`;
+            requestAnimationFrame(animateGlow);
+        }
+        animateGlow();
+    } else {
+        glow.style.position = 'fixed';
+        glow.style.top = '25%';
+        glow.style.left = '50%';
+        glow.style.transform = 'translate(-50%, -50%)';
+        glow.style.animation = 'mobileGlowPulse 5s ease-in-out infinite alternate';
     }
-    animateGlow();
+
+    // Star Particle Generator
+    function createGlowStar(x, y) {
+        const star = document.createElement('div');
+        star.className = 'site-cursor-star';
+        star.textContent = '✦';
+        star.style.left = `${x}px`;
+        star.style.top = `${y}px`;
+        document.body.appendChild(star);
+
+        requestAnimationFrame(() => {
+            star.style.transform = 'translate(-50%, -130%) scale(0.2) rotate(180deg)';
+            star.style.opacity = '0';
+        });
+
+        setTimeout(() => star.remove(), 700);
+    }
+
+    // Micro Sparkle Generator
+    function createGlowParticle(x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'site-cursor-particle';
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        particle.style.setProperty('--move-x', `${(Math.random() - 0.5) * 35}px`);
+        particle.style.setProperty('--move-y', `${(Math.random() - 0.5) * 35}px`);
+        document.body.appendChild(particle);
+
+        setTimeout(() => particle.remove(), 600);
+    }
+
+    function handleInputEvent(x, y) {
+        const now = Date.now();
+        const throttleInterval = isMobile ? 40 : 25;
+        if (now - lastEffectTime > throttleInterval) {
+            createGlowStar(x, y);
+            createGlowParticle(x, y);
+            lastEffectTime = now;
+        }
+    }
+
+    // Desktop Mouse Tracking
+    if (!isMobile) {
+        window.addEventListener('mousemove', (e) => handleInputEvent(e.clientX, e.clientY));
+    }
+
+    // Mobile Touch Tracking (Tap and Drag)
+    window.addEventListener('touchmove', (e) => {
+        for (let i = 0; i < e.touches.length; i++) {
+            handleInputEvent(e.touches[i].clientX, e.touches[i].clientY);
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchstart', (e) => {
+        for (let i = 0; i < e.touches.length; i++) {
+            createGlowStar(e.touches[i].clientX, e.touches[i].clientY);
+            createGlowParticle(e.touches[i].clientX, e.touches[i].clientY);
+        }
+    }, { passive: true });
 }
 
-/* 2. DYNAMIC SYNTH AUDIO EFFECTS */
+/* 2. SYNTH SOUND EFFECTS FOR TOUCH & MOUSE HOVER */
 function initInteractiveAudio() {
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    let audioCtx = null;
 
-    function playBeep(freq = 800, duration = 0.05, gainValue = 0.02) {
+    function getAudioContext() {
+        if (!audioCtx) {
+            audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+        }
         if (audioCtx.state === 'suspended') {
             audioCtx.resume();
         }
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-        gain.gain.setValueAtTime(gainValue, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-
-        osc.start();
-        osc.stop(audioCtx.currentTime + duration);
+        return audioCtx;
     }
 
-    const hoverTargets = document.querySelectorAll('.btn, .seller-card, .nav-links a');
-    hoverTargets.forEach(target => {
+    function playBeep(freq = 800, duration = 0.05, gainValue = 0.02) {
+        try {
+            const ctx = getAudioContext();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime);
+            gain.gain.setValueAtTime(gainValue, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start();
+            osc.stop(ctx.currentTime + duration);
+        } catch (e) {
+            // Mobile browser fallback
+        }
+    }
+
+    const targets = document.querySelectorAll('.btn, .seller-card, .nav-links a');
+    targets.forEach(target => {
         target.addEventListener('mouseenter', () => playBeep(900, 0.04, 0.015));
+        target.addEventListener('touchstart', () => playBeep(900, 0.04, 0.015), { passive: true });
     });
 }
 
-/* 3. BOOKING FORM ACTIONS */
+/* 3. BOOKING FORM (EMAIL & WHATSAPP DIRECT ACTION) */
 function initBookingActions() {
     const form = document.getElementById('booking-form');
     const emailButton = document.getElementById('booking-email');
@@ -78,38 +163,26 @@ function initBookingActions() {
         }
 
         function buildMessage(data) {
-            const lines = [
+            return [
                 `Name: ${data.name || 'N/A'}`,
                 `Phone: ${data.phone || 'N/A'}`,
-                `Service: ${data.service || 'N/A'}`,
-                `Preferred date: ${data.date || 'N/A'}`,
-                `Details: ${data.details || 'N/A'}`,
-            ];
-            return lines.join('\n');
+                `Service Category: ${data.service || 'N/A'}`,
+                `Preferred Date: ${data.date || 'N/A'}`,
+                `Details: ${data.details || 'N/A'}`
+            ].join('\n');
         }
 
-        // Opens Gmail directly in a browser tab
         emailButton.addEventListener('click', () => {
             const data = getFormData();
-            const subject = encodeURIComponent(`Y-ECHNOLOGY booking request: ${data.service || 'Service inquiry'}`);
-            const body = encodeURIComponent(`Hello Y-ECHNOLOGY team,\n\nI would like to book a service:\n\n${buildMessage(data)}\n\nThanks!`);
+            const subject = encodeURIComponent(`Y-ECHNOLOGY Mauritius Inquiry: ${data.service || 'General Inquiry'}`);
+            const body = encodeURIComponent(`Hello Y-ECHNOLOGY Team,\n\nI would like to book a service:\n\n${buildMessage(data)}\n\nThank you.`);
             window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}&su=${subject}&body=${body}`, '_blank');
         });
 
         whatsappButton.addEventListener('click', () => {
             const data = getFormData();
-            const text = encodeURIComponent(`Hello Y-ECHNOLOGY, I would like to book a service.\n\n${buildMessage(data)}`);
+            const text = encodeURIComponent(`Hello Y-ECHNOLOGY Mauritius, I would like to book a service:\n\n${buildMessage(data)}`);
             window.open(`https://wa.me/${targetPhone}?text=${text}`, '_blank');
         });
     }
-
-    // Direct Gmail Web opening for standard mailto links
-    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const href = link.getAttribute('href');
-            const targetEmail = href.replace('mailto:', '').split('?')[0];
-            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}`, '_blank');
-        });
-    });
 }
