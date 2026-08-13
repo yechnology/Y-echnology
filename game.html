@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Engineering & Prototyping | Y-ECHNOLOGY Mauritius</title>
+    <meta name="description" content="Y-ECHNOLOGY supports developers with gameplay mechanics, interactive UI systems, and launch-ready game builds in Mauritius.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="brand">
+                <a href="index.html">Y-<span>ECHNOLOGY</span></a>
+                <p>Innovate. Repair. Connect.</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="index.html#services">Services <span class="dropdown-arrow">▾</span></a>
+                    <ul class="submenu">
+                        <li><a href="web-development.html">Web Development</a></li>
+                        <li><a href="graphics-design.html">Visuals & UI/UX Systems</a></li>
+                        <li><a href="hardware-repairs.html">Hardware & Device Repair</a></li>
+                        <li><a href="web-scraping-agents.html">Automated Data Agents</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="game.html">Game Engineering</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="#booking-service">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#booking-service" class="btn btn-purple-glow">Contact Us</a>
+                <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer" class="btn btn-whatsapp">WhatsApp</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="service-hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>Game Engineering & Prototyping.</h1>
+                    <p class="hero-description">Supporting developers with gameplay mechanics, UI systems, physics logic, and multi-platform game deployment builds.</p>
+                    <div class="hero-actions">
+                        <a href="mailto:yechnology.mu@gmail.com" class="btn btn-purple-glow">Start Your Project</a>
+                        <a href="https://wa.me/23000000000" target="_blank" rel="noreferrer" class="btn btn-whatsapp">Chat on WhatsApp</a>
+                    </div>
+                    <div class="hero-stats-list">
+                        <div class="stat-item">
+                            <span class="stat-number">Prototype</span>
+                            <span class="stat-label">Gameplay mechanics</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Systems</span>
+                            <span class="stat-label">Game UI logic</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Builds</span>
+                            <span class="stat-label">Cross-platform deployment</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80" alt="Game Engineering Setup" class="hero-banner-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="top-sellers" id="service-details">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Game Capabilities</h2>
+                </div>
+                <div class="seller-cards-grid">
+                    <article class="seller-card">
+                        <div class="seller-info">
+                            <h4>Gameplay Systems</h4>
+                            <p>Character controls, score tracking, interaction logic, and physics integration.</p>
+                        </div>
+                    </article>
+                    <article class="seller-card">
+                        <div class="seller-info">
+                            <h4>Interactive UI & HUDs</h4>
+                            <p>Heads-up displays, menu systems, and inventory interface design.</p>
+                        </div>
+                    </article>
+                    <article class="seller-card">
+                        <div class="seller-info">
+                            <h4>Launch & Platform Support</h4>
+                            <p>Packaging, testing, and deployment for iOS, Android, PC, and web environments.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ALWAYS VISIBLE INTERACTIVE DEMO WITH FULLSCREEN OPTION -->
+        <section id="sky-dodge-section" class="top-sellers" aria-label="Sky Dodge demo">
+            <div class="container">
+                <div class="section-header" style="display:flex; justify-content:space-between; align-items:center;">
+                    <h2>Try an Interactive Demo</h2>
+                    <!-- FULL SCREEN TOGGLE BUTTON -->
+                    <button id="fullscreen-btn" class="btn btn-purple-glow" style="padding: 0.5rem 1rem; font-size:0.8rem;">
+                        ⛶ Full Screen
+                    </button>
+                </div>
+
+                <style>
+                    #skyDodgeWrapper {
+                        position: relative;
+                        max-width: 1100px;
+                        margin: 0 auto;
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+                        background: #000;
+                    }
+                    
+                    #skyDodge {
+                        width: 100%;
+                        height: 600px;
+                        position: relative;
+                        background: linear-gradient(#55c7ff, #d9f5ff);
+                        overflow: hidden;
+                    }
+                    /* FULLSCREEN OVERRIDE STYLES */
+                    
+                    #skyDodgeWrapper.is-fullscreen {
+                        position: fixed !important;
+                        inset: 0 !important;
+                        width: 100vw !important;
+                        height: 100vh !important;
+                        max-width: none !important;
+                        border-radius: 0 !important;
+                        z-index: 99999 !important;
+                    }
+                    
+                    #skyDodgeWrapper.is-fullscreen #skyDodge {
+                        height: 100vh !important;
+                    }
+                    
+                    #skyDodge .control {
+                        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+                    }
+                    
+                    @media (max-width:900px) {
+                        #skyDodge {
+                            height: 60vh;
+                        }
+                        #skyPlayer {
+                            width: 52px;
+                            height: 52px;
+                            font-size: 40px;
+                        }
+                        #skyControls .control {
+                            width: 88px;
+                            height: 88px;
+                            font-size: 36px;
+                        }
+                    }
+                </style>
+
+                <!-- DIRECTLY DISPLAYED GAME CONTAINER -->
+                <div id="skyDodgeWrapper">
+                    <div id="skyDodge">
+                        <!-- EXIT FULLSCREEN BUTTON INSIDE CANVAS -->
+                        <button id="exit-fullscreen-btn" style="display:none; position:absolute; top:12px; right:12px; z-index:110; background:rgba(0,0,0,0.6); color:#fff; border:1px solid #fff; border-radius:8px; padding:6px 12px; font-weight:bold; cursor:pointer;">
+                            ✕ Exit Fullscreen
+                        </button>
+
+                        <div id="skyUI" style="position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;color:#fff;font-weight:bold;z-index:20; max-width: 80%;">
+                            <div>⭐ <span id="skyScore">0</span></div>
+                            <div id="skyLives">❤️❤️❤️</div>
+                            <div>🏆 <span id="skyBest">0</span></div>
+                        </div>
+
+                        <div id="skyPlayer" style="position:absolute;width:60px;height:60px;left:50%;top:75%;transform:translate(-50%,-50%);font-size:50px;display:flex;align-items:center;justify-content:center;z-index:10">✈️</div>
+
+                        <div id="skyControls" style="position:absolute;bottom:18px;left:0;right:0;display:flex;justify-content:space-between;padding:0 30px;z-index:30;pointer-events:none">
+                            <div class="control" id="skyLeftBtn" style="width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.35);display:flex;align-items:center;justify-content:center;font-size:32px;pointer-events:auto">⬅️</div>
+                            <div class="control" id="skyRightBtn" style="width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.35);display:flex;align-items:center;justify-content:center;font-size:32px;pointer-events:auto">➡️</div>
+                        </div>
+
+                        <div id="skyStartScreen" style="position:absolute;inset:0;background:rgba(0,0,0,0.65);display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;z-index:100;text-align:center">
+                            <h1 style="font-size:40px;margin-bottom:8px">✈️ Sky Dodge</h1>
+                            <div style="font-size:16px;margin-bottom:18px">Dodge clouds. Collect stars. How high can you score?</div>
+                            <button id="skyStartBtn" class="btn btn-purple-glow">START GAME</button>
+                        </div>
+
+                        <div id="skyGameOverScreen" style="position:absolute;inset:0;background:rgba(0,0,0,0.65);display:none;flex-direction:column;justify-content:center;align-items:center;color:white;z-index:100;text-align:center">
+                            <h1 style="font-size:40px;margin-bottom:12px">💥 GAME OVER</h1>
+                            <div id="skyFinalScore" style="font-size:20px;margin-bottom:12px">Score: 0</div>
+                            <button id="skyRestartBtn" class="btn btn-purple-glow">PLAY AGAIN</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section booking-service-section" id="booking-service">
+            <div class="container contact-grid">
+                <div class="contact-card booking-card">
+                    <h2>Book Game Engineering</h2>
+                    <p>Share your game mechanics or prototype concept with our team.</p>
+                    <form id="booking-form">
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-name">Your Name</label>
+                            <input id="booking-name" name="name" class="booking-input" type="text" placeholder="Full name">
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-phone">Phone Number</label>
+                            <input id="booking-phone" name="phone" class="booking-input" type="tel" placeholder="+230 000 00000">
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-service">Service Category</label>
+                            <select id="booking-service" name="service" class="booking-select">
+                                <option value="Web Development">Web Development</option>
+                                <option value="Visuals & UI/UX Systems">Visuals & UI/UX Systems</option>
+                                <option value="Hardware & Device Repair">Hardware & Device Repair</option>
+                                <option value="Automated Data Agents">Automated Data Agents</option>
+                                <option value="Shop">Shop</option>
+                                <option value="Game Engineering" selected>Game Engineering</option>
+                            </select>
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-date">Preferred Date</label>
+                            <input id="booking-date" name="date" class="booking-input" type="date">
+                        </div>
+                        <div class="booking-row">
+                            <label class="booking-label" for="booking-details">Additional Details</label>
+                            <textarea id="booking-details" name="details" class="booking-textarea" rows="4" placeholder="Describe game genre or target platform"></textarea>
+                        </div>
+                        <div class="booking-actions">
+                            <button type="button" id="booking-email" class="btn btn-purple-glow btn-email">Send by Email</button>
+                            <button type="button" id="booking-whatsapp" class="btn btn-whatsapp">Send via WhatsApp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER WITH GOOGLE MAPS LOCATION RESTORED -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col footer-brand">
+                <a href="index.html" class="footer-logo">Y-<span>ECHNOLOGY</span></a>
+                <p class="brand-tagline">Innovate. Repair. Connect.</p>
+                <p class="brand-desc">Premier technology partner in Mauritius specializing in web development, futuristic graphic design, hardware repairs, and component sourcing.</p>
+                <div class="status-badge">
+                    <span class="status-dot"></span> Available for new projects
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Services</h4>
+                <ul class="footer-menu">
+                    <li><a href="web-development.html">Web Development</a></li>
+                    <li><a href="graphics-design.html">Graphics Design</a></li>
+                    <li><a href="hardware-repairs.html">Hardware Repairs</a></li>
+                    <li><a href="web-scraping-agents.html">Web Scraping Agents</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Company</h4>
+                <ul class="footer-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="#booking-service">Book a Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-contact-col">
+                <h4 class="footer-heading">Get in Touch</h4>
+                <p class="contact-item"><strong>Location:</strong> <a href="https://www.google.com/maps/search/?api=1&query=XJ6X%2B8RW%2C%20Goodlands" target="_blank" rel="noreferrer">XJ6X+8RW, Goodlands</a></p>
+                <iframe class="footer-map" src="https://www.google.com/maps?q=XJ6X%2B8RW,+Goodlands&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p class="contact-item" style="margin-top:0.8rem;"><strong>Email:</strong> <a href="mailto:yechnology.mu@gmail.com">yechnology.mu@gmail.com</a></p>
+                <p class="contact-item"><strong>Phone:</strong> <a href="tel:+23000000000">+230 000 00000</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>© 2026 Y-ECHNOLOGY. All rights reserved. Trusted technology solutions across Mauritius.</p>
+                <div class="footer-legal-links">
+                    <a href="#contact">Terms of Service</a>
+                    <span class="divider">•</span>
+                    <a href="#contact">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Fullscreen Logic
+        (function() {
+            const wrapper = document.getElementById('skyDodgeWrapper');
+            const fsBtn = document.getElementById('fullscreen-btn');
+            const exitBtn = document.getElementById('exit-fullscreen-btn');
+
+            function toggleFullScreen() {
+                const isFS = wrapper.classList.contains('is-fullscreen');
+                if (!isFS) {
+                    wrapper.classList.add('is-fullscreen');
+                    exitBtn.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    wrapper.classList.remove('is-fullscreen');
+                    exitBtn.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+
+            fsBtn && fsBtn.addEventListener('click', toggleFullScreen);
+            exitBtn && exitBtn.addEventListener('click', toggleFullScreen);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && wrapper.classList.contains('is-fullscreen')) {
+                    toggleFullScreen();
+                }
+            });
+        })();
+
+        // Sky Dodge Game Engine
+        (function() {
+            const sky = document.getElementById('skyDodge');
+            if (!sky) return;
+
+            const skyPlayer = document.getElementById('skyPlayer');
+            const skyScoreText = document.getElementById('skyScore');
+            const skyBestText = document.getElementById('skyBest');
+            const skyLivesText = document.getElementById('skyLives');
+            const skyStartScreen = document.getElementById('skyStartScreen');
+            const skyGameOverScreen = document.getElementById('skyGameOverScreen');
+            const skyStartBtn = document.getElementById('skyStartBtn');
+            const skyRestartBtn = document.getElementById('skyRestartBtn');
+            const skyFinalScore = document.getElementById('skyFinalScore');
+            const skyLeftBtn = document.getElementById('skyLeftBtn');
+            const skyRightBtn = document.getElementById('skyRightBtn');
+
+            let gameRunning = false;
+            let playerX = 50;
+            let score = 0,
+                lives = 3,
+                speed = 4,
+                spawnRate = 1000;
+            let objects = [],
+                keys = {
+                    left: false,
+                    right: false
+                };
+            let lastTime = 0,
+                spawnTimer = 0;
+            let bestScore = localStorage.getItem('skyDodgeBest') * 1 || 0;
+            skyBestText.textContent = bestScore;
+
+            function updatePlayer() {
+                if (keys.left) playerX -= 0.8;
+                if (keys.right) playerX += 0.8;
+                playerX = Math.max(2, Math.min(98, playerX));
+                skyPlayer.style.left = `calc(${playerX}% - 30px)`;
+            }
+
+            function spawnObject() {
+                const el = document.createElement('div');
+                const isStar = Math.random() < 0.25;
+                el.textContent = isStar ? '⭐' : '☁️';
+                const x = Math.random() * 90 + 5;
+                el.style.position = 'absolute';
+                el.style.left = `${x}%`;
+                el.style.top = '-70px';
+                el.style.fontSize = isStar ? '35px' : '55px';
+                sky.appendChild(el);
+                objects.push({
+                    element: el,
+                    x: x,
+                    y: -70,
+                    type: isStar ? 'star' : 'cloud'
+                });
+            }
+
+            function checkCollision(obj) {
+                const pr = skyPlayer.getBoundingClientRect();
+                const or = obj.element.getBoundingClientRect();
+                return !(pr.right < or.left || pr.left > or.right || pr.bottom < or.top || pr.top > or.bottom);
+            }
+
+            function updateLives() {
+                skyLivesText.textContent = '❤️'.repeat(lives) + '🖤'.repeat(3 - lives);
+            }
+
+            function endGame() {
+                gameRunning = false;
+                skyFinalScore.textContent = `Score: ${score}`;
+                if (score > bestScore) {
+                    bestScore = score;
+                    localStorage.setItem('skyDodgeBest', bestScore);
+                    skyBestText.textContent = bestScore;
+                }
+                skyGameOverScreen.style.display = 'flex';
+            }
+
+            function gameLoop(time) {
+                if (!gameRunning) return;
+                const delta = time - lastTime;
+                lastTime = time;
+                spawnTimer += delta;
+                if (spawnTimer > spawnRate) {
+                    spawnObject();
+                    spawnTimer = 0;
+                    if (spawnRate > 400) spawnRate -= 8;
+                    speed += 0.03;
+                }
+                objects.forEach((obj, index) => {
+                    obj.y += speed;
+                    obj.element.style.top = `${obj.y}px`;
+                    if (checkCollision(obj)) {
+                        if (obj.type === 'star') {
+                            score += 10;
+                        } else {
+                            lives--;
+                            updateLives();
+                            if (lives <= 0) endGame();
+                        }
+                        obj.element.remove();
+                        objects.splice(index, 1);
+                        skyScoreText.textContent = score;
+                    } else if (obj.y > 650) {
+                        if (obj.type === 'cloud') score++;
+                        obj.element.remove();
+                        objects.splice(index, 1);
+                        skyScoreText.textContent = score;
+                    }
+                });
+                updatePlayer();
+                requestAnimationFrame(gameLoop);
+            }
+
+            function startGame() {
+                gameRunning = true;
+                score = 0;
+                lives = 3;
+                speed = 4;
+                spawnRate = 1000;
+                playerX = 50;
+                skyScoreText.textContent = score;
+                updateLives();
+                skyStartScreen.style.display = 'none';
+                skyGameOverScreen.style.display = 'none';
+                objects.forEach(o => o.element.remove());
+                objects = [];
+                lastTime = performance.now();
+                spawnTimer = 0;
+                requestAnimationFrame(gameLoop);
+            }
+
+            document.addEventListener('keydown', e => {
+                if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'a') keys.left = true;
+                if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'd') keys.right = true;
+            });
+            document.addEventListener('keyup', e => {
+                if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'a') keys.left = false;
+                if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'd') keys.right = false;
+            });
+
+            skyLeftBtn.addEventListener('pointerdown', () => keys.left = true);
+            skyLeftBtn.addEventListener('pointerup', () => keys.left = false);
+            skyRightBtn.addEventListener('pointerdown', () => keys.right = true);
+            skyRightBtn.addEventListener('pointerup', () => keys.right = false);
+
+            skyStartBtn.addEventListener('click', startGame);
+            skyRestartBtn.addEventListener('click', startGame);
+        })();
+    </script>
+</body>
+
+</html>
