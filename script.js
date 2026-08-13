@@ -2,7 +2,42 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileGlowAndParticles();
     initInteractiveAudio();
     initBookingActions();
+    initMobileDropdowns();
 });
+
+function initMobileDropdowns() {
+    const dropdowns = document.querySelectorAll('.has-dropdown');
+
+    dropdowns.forEach((dropdown) => {
+        const trigger = dropdown.querySelector('a');
+
+        if (!trigger) return;
+
+        trigger.addEventListener('click', (event) => {
+            if (window.innerWidth > 900) return;
+
+            event.preventDefault();
+            const isOpen = dropdown.classList.contains('open');
+
+            dropdowns.forEach((item) => {
+                item.classList.remove('open');
+            });
+
+            if (!isOpen) {
+                dropdown.classList.add('open');
+            }
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        if (window.innerWidth > 900) return;
+
+        const clickedInsideDropdown = event.target.closest('.has-dropdown');
+        if (!clickedInsideDropdown) {
+            dropdowns.forEach((dropdown) => dropdown.classList.remove('open'));
+        }
+    });
+}
 
 /* 1. GPU-ACCELERATED PC & MOBILE PARTICLE & GLOW ENGINE */
 function initMobileGlowAndParticles() {
