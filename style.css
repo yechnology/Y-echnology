@@ -103,6 +103,39 @@ nav {
     padding: 0 1.5rem;
 }
 
+.navbar {
+    position: relative;
+}
+
+.nav-panel {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    padding: 10px 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    border-radius: 999px;
+}
+
 .brand a {
     font-size: 1.5rem;
     font-weight: 900;
@@ -992,37 +1025,59 @@ a[href*="wa.me"]:hover {
         padding: 0.7rem 0;
     }
     nav {
-        flex-direction: column;
-        gap: 0.7rem;
-        text-align: center;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
         width: 100%;
     }
     .brand {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        flex: 1;
     }
     .brand a {
         font-size: 1.2rem;
     }
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    .nav-panel {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        left: 0;
+        right: 0;
+        background: rgba(4, 16, 24, 0.98);
+        border: 1px solid var(--border-subtle);
+        border-radius: 16px;
+        padding: 1rem;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+    }
+    .nav-panel.open {
+        display: flex;
+    }
     .nav-links {
         flex-direction: column;
         gap: 0.55rem;
-        width: min(100%, 360px);
+        width: 100%;
         padding: 0.25rem 0;
     }
     .has-dropdown {
         width: 100%;
     }
     .has-dropdown .submenu {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%) translateY(4px);
-        width: min(90vw, 260px);
-        opacity: 0;
-        visibility: hidden;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
-        background: rgba(4, 16, 24, 0.96);
+        position: static;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.02);
         border: 1px solid var(--border-subtle);
         border-radius: 12px;
         margin-top: 0.35rem;
@@ -1031,8 +1086,6 @@ a[href*="wa.me"]:hover {
     }
     .has-dropdown.open .submenu {
         display: block;
-        opacity: 1;
-        visibility: visible;
     }
     .submenu a {
         padding: 0.6rem 1rem;
