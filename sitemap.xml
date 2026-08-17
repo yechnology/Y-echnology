@@ -7,18 +7,18 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Main Services Page -->
+
+  <!-- Web Development -->
   <url>
-    <loc>https://yechnology.com/services</loc>
+    <loc>https://yechnology.com/web-development.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Web Development -->
+  <!-- Visuals & UI/UX Systems (Graphic Design) -->
   <url>
-    <loc>https://yechnology.com/web-development</loc>
+    <loc>https://yechnology.com/graphics-design.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -26,25 +26,33 @@
 
   <!-- Hardware Repair -->
   <url>
-    <loc>https://yechnology.com/hardware-repairs</loc>
+    <loc>https://yechnology.com/hardware-repairs.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Graphic Design -->
+  <!-- Automated Data Agents -->
   <url>
-    <loc>https://yechnology.com/graphic-design</loc>
+    <loc>https://yechnology.com/web-scraping-agents.html</loc>
     <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Contact -->
+  <!-- Component Sourcing (Shop) -->
   <url>
-    <loc>https://yechnology.com/contact</loc>
+    <loc>https://yechnology.com/shop.html</loc>
     <lastmod>2026-08-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Game Engineering -->
+  <url>
+    <loc>https://yechnology.com/game.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
